@@ -34,13 +34,25 @@
 
 ### 在 Codex 中注册 MCP 服务
 
-在 Codex 的 MCP 配置中新增一个 stdio 服务，启动命令如下：
+在 Codex 的 MCP 配置中新增一个 stdio 服务，启动命令如下（该命令由 Codex 调用，不要在终端直接运行）：
 
 ```bash
 uvx --from git+https://github.com/pickarm/codex-gemini-mcp.git geminimcp
 ```
 
 如需固定版本，请将 `git+...` 替换为具体 tag 或 commit。
+
+一键写入 Codex 配置（PowerShell）：
+
+```powershell
+codex mcp add-json gemini '{ "command": "uvx", "args": ["--from", "git+https://github.com/pickarm/codex-gemini-mcp.git", "geminimcp"] }'
+```
+
+如果你已经本地安装了包，也可以用本地入口：
+
+```powershell
+codex mcp add-json gemini '{ "command": "geminimcp", "args": [] }'
+```
 
 也可以用配置文件方式（字段名以你当前 Codex 版本为准）：
 
@@ -57,6 +69,14 @@ uvx --from git+https://github.com/pickarm/codex-gemini-mcp.git geminimcp
     }
   }
 }
+```
+
+### 仅安装（不启动服务）
+
+如果你只想安装包并避免终端报错（不启动 MCP 服务），使用：
+
+```bash
+uv pip install "git+https://github.com/pickarm/codex-gemini-mcp.git"
 ```
 
 ### 本地运行（可选）
