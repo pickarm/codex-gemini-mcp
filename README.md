@@ -42,6 +42,23 @@ uvx --from git+https://github.com/pickarm/codex-gemini-mcp.git geminimcp
 
 如需固定版本，请将 `git+...` 替换为具体 tag 或 commit。
 
+也可以用配置文件方式（字段名以你当前 Codex 版本为准）：
+
+```json
+{
+  "mcpServers": {
+    "gemini": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/pickarm/codex-gemini-mcp.git",
+        "geminimcp"
+      ]
+    }
+  }
+}
+```
+
 ### 本地运行（可选）
 
 ```bash
@@ -56,6 +73,16 @@ uv run geminimcp
 ```bash
 uv run python -m geminimcp.cli
 ```
+
+### Windows 安装与配置
+
+Windows 无需单独版本，流程与其他平台一致：
+
+1. 安装并配置 Gemini CLI，确保 `gemini` 在 PATH 中：
+   - `where gemini`
+2. 安装 uv，确保 `uv`/`uvx` 在 PATH 中：
+   - `uv --version`
+3. 使用上面的 `uvx` 命令注册 MCP；`cd` 路径建议使用正斜杠并保持绝对路径。
 
 ## 工具说明
 
@@ -76,6 +103,16 @@ uv run python -m geminimcp.cli
 {
   "PROMPT": "用一句话解释 MCP。",
   "cd": "D:/ai/workspace"
+}
+```
+
+继续会话示例：
+
+```json
+{
+  "PROMPT": "继续刚才的话题。",
+  "cd": "D:/ai/workspace",
+  "SESSION_ID": "session-uuid"
 }
 ```
 

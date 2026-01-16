@@ -42,6 +42,23 @@ uvx --from git+https://github.com/pickarm/codex-gemini-mcp.git geminimcp
 
 For a fixed version, replace `git+...` with a tag or commit.
 
+You can also configure it via a config file (field names may vary by Codex version):
+
+```json
+{
+  "mcpServers": {
+    "gemini": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/pickarm/codex-gemini-mcp.git",
+        "geminimcp"
+      ]
+    }
+  }
+}
+```
+
 ### Local Run (Optional)
 
 ```bash
@@ -56,6 +73,16 @@ Or:
 ```bash
 uv run python -m geminimcp.cli
 ```
+
+### Windows Installation & Setup
+
+No dedicated Windows build is required; the flow is the same:
+
+1. Install and configure Gemini CLI, then confirm `gemini` is on PATH:
+   - `where gemini`
+2. Install uv and make sure `uv`/`uvx` are on PATH:
+   - `uv --version`
+3. Register the MCP server using the `uvx` command above; prefer absolute `cd` paths with forward slashes.
 
 ## Tool Documentation
 
@@ -76,6 +103,16 @@ Use an absolute path for `cd` and prefer forward slashes, for example:
 {
   "PROMPT": "Explain MCP in one sentence.",
   "cd": "D:/ai/workspace"
+}
+```
+
+Resume example:
+
+```json
+{
+  "PROMPT": "Continue the previous topic.",
+  "cd": "D:/ai/workspace",
+  "SESSION_ID": "session-uuid"
 }
 ```
 

@@ -179,7 +179,7 @@ async def gemini(
     else:
         PROMPT = PROMPT
 
-    cmd = ["gemini", "--prompt", PROMPT, "-o", "stream-json"]
+    cmd = ["gemini", "-o", "stream-json"]
 
     if sandbox:
         cmd.extend(["--sandbox"])
@@ -189,6 +189,8 @@ async def gemini(
 
     if SESSION_ID:
         cmd.extend(["--resume", SESSION_ID])
+
+    cmd.append(PROMPT)
 
     all_messages = []
     agent_messages = ""
