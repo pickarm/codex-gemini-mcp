@@ -45,13 +45,13 @@ uvx --from git+https://github.com/pickarm/codex-gemini-mcp.git geminimcp
 一键写入 Codex 配置（PowerShell）：
 
 ```powershell
-codex mcp add-json gemini '{ "command": "uvx", "args": ["--from", "git+https://github.com/pickarm/codex-gemini-mcp.git", "geminimcp"] }'
+codex mcp add gemini -- uvx --from git+https://github.com/pickarm/codex-gemini-mcp.git geminimcp
 ```
 
 如果你已经本地安装了包，也可以用本地入口：
 
 ```powershell
-codex mcp add-json gemini '{ "command": "geminimcp", "args": [] }'
+codex mcp add gemini -- geminimcp
 ```
 
 也可以用配置文件方式（字段名以你当前 Codex 版本为准）：

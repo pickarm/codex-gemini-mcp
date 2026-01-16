@@ -45,13 +45,13 @@ For a fixed version, replace `git+...` with a tag or commit.
 One-shot add to Codex config (PowerShell):
 
 ```powershell
-codex mcp add-json gemini '{ "command": "uvx", "args": ["--from", "git+https://github.com/pickarm/codex-gemini-mcp.git", "geminimcp"] }'
+codex mcp add gemini -- uvx --from git+https://github.com/pickarm/codex-gemini-mcp.git geminimcp
 ```
 
 If you already installed the package locally, you can use the local entry:
 
 ```powershell
-codex mcp add-json gemini '{ "command": "geminimcp", "args": [] }'
+codex mcp add gemini -- geminimcp
 ```
 
 You can also configure it via a config file (field names may vary by Codex version):
