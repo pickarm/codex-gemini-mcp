@@ -1,4 +1,4 @@
-﻿[project]
+[project]
 name = "geminimcp"
 version = "0.1.0"
 description = "MCP server that wraps the Gemini CLI for Codex integration"
